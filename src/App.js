@@ -6,6 +6,7 @@ import { Destination } from './components/Destination';
 import { Contact } from './components/Contact';
 import { Gallery } from './components/Gallery';
 import { About } from './components/About';
+import Packages from './components/Packages';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
       <Navbar />
       <Home />
       <Destination />
+      <Packages/>
       <Gallery />
       <About />
       <Contact />

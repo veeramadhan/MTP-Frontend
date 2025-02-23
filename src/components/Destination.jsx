@@ -3,9 +3,11 @@ import bus from "../../src/assets/logo/bus.png";
 import hotel from "../../src/assets/logo/hotel.png";
 import RoomStay from "./Destination/RoomStay/RoomStay";
 import Bus from "../components/Destination/Transportation/Bus";
+import information from "../assets/logo/information.png";
+import Information from "./Destination/information/Information";
 
 export const Destination = () => {
-  const [activeSection, setActiveSection] = useState("rooms"); // 'rooms' or 'bus'
+  const [activeSection, setActiveSection] = useState("information");
 
   return (
     <section
@@ -16,21 +18,22 @@ export const Destination = () => {
         Ultimate Travel Experience
       </h1>
 
-      <div className="flex justify-center items-center gap-6 sm:gap-10 mt-8 flex-wrap">
+      <div className="flex justify-center items-center gap-6 sm:gap-10 mt-20 flex-wrap">
         {/* Hotel Logo with Click to Show Rooms */}
         <div
           className={`flex flex-col items-center transform transition duration-300 ${
-            activeSection === "rooms" ? "scale-110" : "hover:scale-110"
+            activeSection === "information" ? "scale-110" : "hover:scale-110"
           } cursor-pointer`}
-          onClick={() => setActiveSection(activeSection === "rooms" ? null : "rooms")}
+          onClick={() => setActiveSection(activeSection === "information" ? null : "information")}
         >
           <img
-            src={hotel}
+            src={information}
             className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20"
-            alt="Hotel Logo"
+            alt="information Logo"
           />
-          <p className="text-sm sm:text-lg font-medium mt-2">Rooms</p>
+          <p className="text-sm sm:text-lg font-medium mt-2">Information</p>
         </div>
+       
 
         {/* Bus Logo with Click to Show Bus */}
         <div
@@ -46,10 +49,25 @@ export const Destination = () => {
           />
           <p className="text-sm sm:text-lg font-medium mt-2">Bus</p>
         </div>
+
+        <div
+          className={`flex flex-col items-center transform transition duration-300 ${
+            activeSection === "rooms" ? "scale-110" : "hover:scale-110"
+          } cursor-pointer`}
+          onClick={() => setActiveSection(activeSection === "rooms" ? null : "rooms")}
+        >
+          <img
+            src={hotel}
+            className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20"
+            alt="Hotel Logo"
+          />
+          <p className="text-sm sm:text-lg font-medium mt-2">Rooms</p>
+        </div>
       </div>
 
       {/* Conditionally Render RoomStay or Bus */}
       <div className="w-full  mt-6 sm:mt-10">
+      {activeSection === "information" && <Information />}
         {activeSection === "rooms" && <RoomStay />}
         {activeSection === "bus" && <Bus />}
       </div>

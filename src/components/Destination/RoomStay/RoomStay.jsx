@@ -60,7 +60,7 @@ const RoomStay = ({ showRooms }) => {
         <div
           key={roomIdx}
           className="bg-white shadow-lg rounded-lg overflow-hidden p-4 transition transform hover:scale-105 
-                     h-[300px] w-full sm:h-[340px] sm:w-[400px] md:h-[380px] md:w-[500px] mx-auto"
+                     h-[300px] w-full sm:h-[340px] sm:w-[400px] md:h-[400px] md:w-[500px] mx-auto"
         >
           <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">{roomTypes[roomIdx]}</h3>
 

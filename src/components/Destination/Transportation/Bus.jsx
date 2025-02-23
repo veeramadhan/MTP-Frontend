@@ -52,7 +52,7 @@ const Bus = () => {
       {busImages.map((images, busIdx) => (
         <div
           key={busIdx}
-          className="bg-white shadow-lg rounded-lg overflow-hidden p-4 transition transform hover:scale-105 md:h-[380px] md:w-[500px] mx-auto"
+          className="bg-white shadow-lg rounded-lg overflow-hidden p-4 transition transform hover:scale-105 md:h-[400px] md:w-[500px] mx-auto"
         >
           <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">{busTypes[busIdx]}</h3>
 

@@ -59,6 +59,7 @@ export const Navbar = () => {
             <div className="hidden md:flex space-x-6">
               <Link to="home" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Home</Link>
               <Link to="destination" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Destination</Link>
+              <Link to="packages" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Packages</Link>
               <Link to="gallery" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Gallery</Link>
               <Link to="About" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">About us </Link>
               <Link to="contact" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Contact</Link>
@@ -78,6 +79,9 @@ export const Navbar = () => {
             </Link>
             <Link to="destination" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
               Destination
+            </Link>
+            <Link to="packages" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+              Packages
             </Link>
             <Link to="gallery" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
               Gallery
