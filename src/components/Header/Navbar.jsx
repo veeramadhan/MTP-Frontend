@@ -73,13 +73,24 @@ export const Navbar = () => {
 
         {nav && (
           <div className="md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4 py-4">
-            <Link to="home" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Home</Link>
-            <Link to="destination" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Destination</Link>
-            <Link to="gallery" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Gallery</Link>
-            <Link to="About" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">About us </Link>
-            <Link to="contact" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Contact</Link>
+            <Link to="home" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+              Home
+            </Link>
+            <Link to="destination" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+              Destination
+            </Link>
+            <Link to="gallery" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+              Gallery
+            </Link>
+            <Link to="About" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+              About us
+            </Link>
+            <Link to="contact" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+              Contact
+            </Link>
           </div>
         )}
+
       </nav>
     </>
   );

@@ -22,8 +22,8 @@ export const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-10 px-4 sm:px-8 lg:px-16">
-      <div className="relative w-full max-w-7xl mx-auto">
+    <section id="gallery" className="py-10 px-4 sm:px-8 lg:px-16 bg-green-50">
+      <div className="relative  w-full max-w-7xl mx-auto">
         {/* Background decorative elements */}
         <div className="absolute inset-0 -z-10 hidden sm:block">
           <Camera className="absolute top-10 left-10 text-orange-200 w-12 h-12 opacity-20" />

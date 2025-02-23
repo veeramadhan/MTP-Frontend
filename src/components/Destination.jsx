@@ -10,7 +10,7 @@ export const Destination = () => {
   return (
     <section
       id="destination"
-      className="h-full pt-16 px-4 md:px-10 lg:px-20 flex flex-col items-center"
+      className="h-full pt-16 px-4 md:px-10 lg:px-20 flex flex-col items-center bg-green-50"
     >
       <h1 className="text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
         Ultimate Travel Experience

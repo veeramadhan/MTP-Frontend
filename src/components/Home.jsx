@@ -17,7 +17,7 @@ const slides = [
 
 export const Home = () => {
   return (
-    <section id="home" className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center">
+    <section id="home" className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50">
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect="fade"
