@@ -57,12 +57,12 @@ export const Navbar = () => {
               <img src={mtp} alt="Logo" className="h-40" />
             </div>
             <div className="hidden md:flex space-x-6">
-              <Link to="home" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Home</Link>
-              <Link to="destination" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Destination</Link>
-              <Link to="packages" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Packages</Link>
-              <Link to="gallery" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Gallery</Link>
-              <Link to="About" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">About us </Link>
-              <Link to="contact" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer">Contact</Link>
+              <Link to="home" smooth={true} duration={500} className="text-gray-700 hover:text-green-600  cursor-pointer text-xl">Home</Link>
+              <Link to="destination" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Destination</Link>
+              <Link to="packages" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Packages</Link>
+              <Link to="gallery" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Gallery</Link>
+              <Link to="About" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">About us </Link>
+              <Link to="contact" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Contact</Link>
             </div>
             <div className="md:hidden">
               <button onClick={() => setNav(!nav)} className="text-gray-700">
@@ -73,8 +73,8 @@ export const Navbar = () => {
         </div>
 
         {nav && (
-          <div className="md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4 py-4">
-            <Link to="home" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+          <div className="md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4  py-4">
+            <Link to="home" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700  hover:text-green-600 cursor-pointer">
               Home
             </Link>
             <Link to="destination" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">

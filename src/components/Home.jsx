@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { MapPin } from "lucide-react"; // Location Icon
-
-import bg1 from "./../assets/images/bg1.jpg";
+import { MapPin } from "lucide-react";
+import { Link } from "react-scroll";
+import bg1 from "./../assets/images/bg1.jpg";  // Use optimized WebP images
 import bg2 from "./../assets/images/bg2.jpg";
 import bg3 from "./../assets/images/bg3.jpg";
+
 
 const slides = [
   { location: "Kerala, India", img: bg2, quote: "Dream. Explore. Discover.", subtext: "Let MTP take you there!" },
@@ -16,6 +17,12 @@ const slides = [
 ];
 
 export const Home = () => {
+  const [loadedImages, setLoadedImages] = useState({});
+
+  const handleImageLoad = (index) => {
+    setLoadedImages((prev) => ({ ...prev, [index]: true }));
+  };
+
   return (
     <section id="home" className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50">
       <Swiper
@@ -27,12 +34,17 @@ export const Home = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="relative flex items-center justify-center">
-            {/* Background Image */}
-            <img 
-              src={slide.img} 
+            {/* Background Image with Lazy Loading */}
+            <img
+              src={slide.img}
               alt="Slide Image"
-              className="w-full h-full object-cover rounded-[30px] sm:rounded-[40px] md:rounded-[50px]" 
+              className={`w-full h-full object-cover rounded-[30px] sm:rounded-[40px] md:rounded-[50px] transition-opacity duration-700 ${
+                loadedImages[index] ? "opacity-100" : "opacity-0"
+              }`}
+              loading="lazy"
+              onLoad={() => handleImageLoad(index)}
             />
+            
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/50 rounded-[30px] sm:rounded-[40px] md:rounded-[50px] flex flex-col items-center justify-center text-center p-4 sm:p-6">
               {/* Location Badge */}
@@ -51,15 +63,13 @@ export const Home = () => {
                 {slide.subtext}
               </p>
 
-              {/* Button & Rating */}
+              {/* Button */}
               <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-                <button className="bg-green-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg font-medium">
-                  Book A Trip
-                </button>
-                <div className="flex items-center gap-2 bg-white px-3 sm:px-4 py-1 sm:py-2 rounded-lg">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/TripAdvisor_Logo_circle.svg" alt="TripAdvisor" className="w-5 sm:w-6 h-5 sm:h-6" />
-                  <span className="text-gray-800 font-medium text-sm sm:text-base">4.5/5.0</span>
-                </div>
+                <Link to="packages" smooth={true} duration={500}>
+                  <button className="bg-green-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg font-medium">
+                    Book A Trip
+                  </button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>

@@ -19,55 +19,56 @@ export const Destination = () => {
       </h1>
 
       <div className="flex justify-center items-center gap-6 sm:gap-10 mt-20 flex-wrap">
-        {/* Hotel Logo with Click to Show Rooms */}
+        
+        {/* Information Section */}
         <div
-          className={`flex flex-col items-center transform transition duration-300 ${
-            activeSection === "information" ? "scale-110" : "hover:scale-110"
-          } cursor-pointer`}
+          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl  border-gray-300 cursor-pointer 
+          transition duration-300 bg-white 
+          ${activeSection === "information" ? "scale-110 shadow-2xl shadow-gray-600" : "hover:scale-110 shadow-lg shadow-gray-400"}`}
           onClick={() => setActiveSection(activeSection === "information" ? null : "information")}
         >
           <img
             src={information}
-            className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20"
-            alt="information Logo"
+            className="h-16 w-16 md:h-20 md:w-20"
+            alt="Information Logo"
           />
-          <p className="text-sm sm:text-lg font-medium mt-2">Information</p>
+          <p className="text-lg font-medium mt-2">Information</p>
         </div>
-       
 
-        {/* Bus Logo with Click to Show Bus */}
+        {/* Bus Section */}
         <div
-          className={`flex flex-col items-center transform transition duration-300 ${
-            activeSection === "bus" ? "scale-110" : "hover:scale-110"
-          } cursor-pointer`}
+          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl  border-gray-300 cursor-pointer 
+          transition duration-300 bg-white 
+          ${activeSection === "bus" ? "scale-110 shadow-2xl shadow-gray-600" : "hover:scale-110 shadow-lg shadow-gray-400"}`}
           onClick={() => setActiveSection(activeSection === "bus" ? null : "bus")}
         >
           <img
             src={bus}
-            className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20"
+            className="h-16 w-16 md:h-20 md:w-20"
             alt="Bus Logo"
           />
-          <p className="text-sm sm:text-lg font-medium mt-2">Bus</p>
+          <p className="text-lg font-medium mt-2">Bus</p>
         </div>
 
+        {/* Rooms Section */}
         <div
-          className={`flex flex-col items-center transform transition duration-300 ${
-            activeSection === "rooms" ? "scale-110" : "hover:scale-110"
-          } cursor-pointer`}
+          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl  border-gray-300 cursor-pointer 
+          transition duration-300 bg-white 
+          ${activeSection === "rooms" ? "scale-110 shadow-2xl shadow-gray-600" : "hover:scale-110 shadow-lg shadow-gray-400"}`}
           onClick={() => setActiveSection(activeSection === "rooms" ? null : "rooms")}
         >
           <img
             src={hotel}
-            className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20"
+            className="h-16 w-16 md:h-20 md:w-20"
             alt="Hotel Logo"
           />
-          <p className="text-sm sm:text-lg font-medium mt-2">Rooms</p>
+          <p className="text-lg font-medium mt-2">Rooms</p>
         </div>
       </div>
 
-      {/* Conditionally Render RoomStay or Bus */}
-      <div className="w-full  mt-6 sm:mt-10">
-      {activeSection === "information" && <Information />}
+      {/* Render Selected Section */}
+      <div className="w-full mt-6 sm:mt-10">
+        {activeSection === "information" && <Information />}
         {activeSection === "rooms" && <RoomStay />}
         {activeSection === "bus" && <Bus />}
       </div>

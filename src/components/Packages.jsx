@@ -30,12 +30,12 @@ const packages = {
   Kerala: [
     {
       id: 3,
-      duration: "5 DAYS / 6 NIGHTS",
-      location: "Munnar + Alleppey",
+      duration: "2 DAYS / 1 NIGHT",
+      location: "Munnar + Munnar",
       image: backwaterboat,
-      title: "Backwaters, Tea Gardens, and Hill Stations",
-      route: "Kochi → Munnar → Alleppey → Kovalam",
-      price: "₹15,999",
+      title: "Off road jeep safari in Munnar",
+      route: "Munnar",
+      price: "start from ₹2,999",
     },
   ],
   Karnataka: [

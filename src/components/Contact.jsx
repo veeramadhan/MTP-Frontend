@@ -1,5 +1,6 @@
 import React from 'react';
 import mtp from "../assets/logo/mtp.png";
+import { Link } from "react-scroll";
 
 export const Contact = () => {
   return (
@@ -11,7 +12,9 @@ export const Contact = () => {
             {/* <img src={mtp} alt="MTP Logo" className="h-16 mb-2 " /> */}
             <h2 className="text-2xl font-bold">MTP</h2>
             <p className="mt-2">Want To Take Tour Packages?</p>
-            <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded-md">Book A Tour</button>
+           
+            <Link to="packages" smooth={true} duration={500}><button className="mt-4 bg-green-500 text-white px-4 py-2 rounded-md"> Book A Tour</button></Link>
+            
           </div>
 
           {/* Quick Links */}
