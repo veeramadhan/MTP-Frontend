@@ -60,7 +60,7 @@ export const Navbar = () => {
               <Link to="home" smooth={true} duration={500} className="text-gray-700 hover:text-green-600  cursor-pointer text-xl">Home</Link>
               <Link to="destination" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Destination</Link>
               <Link to="packages" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Packages</Link>
-              <Link to="gallery" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Gallery</Link>
+              {/* <Link to="gallery" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Gallery</Link> */}
               <Link to="About" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">About us </Link>
               <Link to="contact" smooth={true} duration={500} className="text-gray-700 hover:text-green-600 cursor-pointer text-xl">Contact</Link>
             </div>
@@ -83,9 +83,9 @@ export const Navbar = () => {
             <Link to="packages" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
               Packages
             </Link>
-            <Link to="gallery" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
+            {/* <Link to="gallery" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
               Gallery
-            </Link>
+            </Link> */}
             <Link to="About" smooth={true} duration={500} onClick={() => setNav(false)} className="text-gray-700 hover:text-green-600 cursor-pointer">
               About us
             </Link>

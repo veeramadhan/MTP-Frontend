@@ -1,42 +1,58 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Demo = () => {
+function Demo() {
   const [packages, setPackages] = useState([]);
+  const [images, setImages] = useState([]);
 
-  // Fetch data from FastAPI
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/packages", {
-      withCredentials: true  // Ensures cookies and credentials are included
-    })
+    // Fetch Travel Packages
+    axios.get("http://127.0.0.1:8000/fetch")
       .then((response) => {
-        setPackages(response); // Store data in state
-        console.log("data", response); // Log the data for debugging
+        console.log("Fetched Packages:", response.data);
+        setPackages(response.data.data || []);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching packages:", error);
+      });
+
+    // Fetch Images
+    axios.get("http://127.0.0.1:8000/fetchImages")
+      .then((response) => {
+        console.log("Fetched Images:", response.data);
+        setImages(response.data.data || []);
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
       });
   }, []);
 
   return (
     <div>
-      <h1>Tour Packages</h1>
-      {packages.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
+      <h1>Travel Packages</h1>
+      {packages.length === 0 ? <p>No travel packages found.</p> : (
         <ul>
           {packages.map((pkg) => (
             <li key={pkg._id}>
-              <h2>Day {pkg.day}: {pkg.place}</h2>
-              <p>{pkg.description}</p>
-              <p>Activities: {pkg.activities.join(", ")}</p>
-              <img src={pkg.image} alt={pkg.place} width="200px" />
+              <h3>{pkg.title}</h3>
+              <p>Duration: {pkg.duration}</p>
+              <p>Location: {pkg.location}</p>
+              <p>Price: ₹{pkg.price}</p>
             </li>
           ))}
         </ul>
       )}
+
+      <h1>Images</h1>
+      {images.length === 0 ? <p>No images found.</p> : (
+        <div>
+          {images.map((img) => (
+            <img key={img._id} src={`/images/${img.filename}`} alt={img.title} width="200" />
+          ))}
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default Demo;

@@ -27,14 +27,14 @@ const App = () => {
 
   return (
     <div>
-      {/* <Navbar />
+      <Navbar />
       <Home />
       <Destination />
       <Packages />
-      <Gallery />
+      {/* <Gallery /> */}
       <About />
-      <Contact /> */}
-      <Demo />
+      <Contact />
+      {/* <Demo /> */}
     </div>
   );
 };
