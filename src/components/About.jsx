@@ -5,7 +5,6 @@ export const About = () => {
   return (
     <section id="About" className="w-full bg-green-50 py-12">
       <div className="container mx-auto px-6 flex flex-wrap lg:flex-nowrap items-center justify-between">
-        
         {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
           <p className="text-green-600 font-bold text-2xl">About Us</p>
@@ -13,7 +12,8 @@ export const About = () => {
             We provide the best tour facilities.
           </h2>
           <p className="text-gray-600">
-            Experience unforgettable journeys with safety, expert guides, and seamless travel planning.
+            Experience unforgettable journeys with safety, expert guides, and
+            seamless travel planning.
           </p>
 
           {/* Features */}
@@ -37,13 +37,27 @@ export const About = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 justify-center lg:justify-start mt-6">
-            <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-              Find Out More
-            </button>
-            <button className="flex items-center gap-2 text-gray-800 font-semibold">
-              ▶ Watch Tour
-            </button>
+          <div className="flex gap-4 justify-center lg:justify-start mt-6 items-center ">
+            <a
+              href="https://www.youtube.com/@MaduraiTourPlanner"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-green-400 transition-colors"
+            >
+              <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-transform  hover:scale-110">
+                Find Out More
+              </button>
+            </a>
+            <a
+              href="https://www.instagram.com/madurai_tourplanner/?igsh=MTlqcnI2MXpkdzUzeQ%3D%3D#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-green-400 transition-colors"
+            >
+              <button className="flex items-center gap-2 text-gray-800 font-semibold px-6 py-2 rounded border border-gray-400 transition-transform  hover:scale-110">
+                ▶ Watch Tour
+              </button>
+            </a>
           </div>
         </div>
 

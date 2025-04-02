@@ -8,7 +8,7 @@ const Packages = () => {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/places");
+        const response = await fetch("https://mtp-backend-45q8.onrender.com/places");
         const data = await response.json();
         console.log(data);
         setPackages(data.places[0]);

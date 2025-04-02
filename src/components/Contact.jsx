@@ -23,7 +23,7 @@ export const Contact = () => {
             <ul className="mt-2 space-y-2">
               <li><a href="#home" className="hover:text-green-400">Home</a></li>
               <li><a href="#destination" className="hover:text-green-400">Destination</a></li>
-              <li><a href="#gallery" className="hover:text-green-400">Gallery</a></li>
+              {/* <li><a href="#gallery" className="hover:text-green-400">Gallery</a></li> */}
               <li><a href="#about" className="hover:text-green-400">About Us</a></li>
               <li><a href="#contact" className="hover:text-green-400">Contact</a></li>
             </ul>
@@ -32,7 +32,7 @@ export const Contact = () => {
           {/* Contact Information */}
           <div>
             <h3 className="text-xl font-semibold">More Inquiry</h3>
-            <p className="mt-2">📞 *Call/WhatsApp:* 6380007962 | 9578904139 | 8778070061</p>
+            <p className="mt-2">📞 Call/WhatsApp: 6380007962 | 9578904139 | 8778070061</p>
             <p className="mt-2">📧 maduraitourplanner@gmail.com</p>
             <p className="mt-2">📍 Trichy | Madurai | Chennai</p>
           </div>
