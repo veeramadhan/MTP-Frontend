@@ -22,7 +22,7 @@ export const Destination = () => {
     if (window.innerWidth < 768 && ref.current) {
       setTimeout(() => {
         ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 300); // Delay to ensure state updates before scrolling
+      }, 300);
     }
   };
 
@@ -39,9 +39,12 @@ export const Destination = () => {
         
         {/* Information Section */}
         <div
-          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl border-gray-300 cursor-pointer 
-          transition duration-300 bg-white 
-          ${activeSection === "information" ? "scale-110 shadow-2xl shadow-gray-600" : "hover:scale-110 shadow-lg shadow-gray-400"}`}
+          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl border-gray-300 cursor-pointer transition-all duration-500 bg-white 
+          ${
+            activeSection === "information"
+              ? "scale-110 opacity-100 shadow-2xl shadow-gray-600"
+              : "scale-90 opacity-50 hover:scale-105 shadow-lg shadow-gray-400"
+          }`}
           onClick={() => handleSectionClick("information", infoRef)}
         >
           <img src={information} className="h-16 w-16 md:h-20 md:w-20" alt="Information Logo" />
@@ -50,9 +53,12 @@ export const Destination = () => {
 
         {/* Bus Section */}
         <div
-          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl border-gray-300 cursor-pointer 
-          transition duration-300 bg-white 
-          ${activeSection === "bus" ? "scale-110 shadow-2xl shadow-gray-600" : "hover:scale-110 shadow-lg shadow-gray-400"}`}
+          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl border-gray-300 cursor-pointer transition-all duration-500 bg-white 
+          ${
+            activeSection === "bus"
+              ? "scale-110 opacity-100 shadow-2xl shadow-gray-600"
+              : "scale-90 opacity-50 hover:scale-105 shadow-lg shadow-gray-400"
+          }`}
           onClick={() => handleSectionClick("bus", busRef)}
         >
           <img src={bus} className="h-16 w-16 md:h-20 md:w-20" alt="Bus Logo" />
@@ -61,9 +67,12 @@ export const Destination = () => {
 
         {/* Rooms Section */}
         <div
-          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl border-gray-300 cursor-pointer 
-          transition duration-300 bg-white 
-          ${activeSection === "rooms" ? "scale-110 shadow-2xl shadow-gray-600" : "hover:scale-110 shadow-lg shadow-gray-400"}`}
+          className={`flex flex-col items-center justify-center w-36 h-36 md:w-44 md:h-44 rounded-xl border-gray-300 cursor-pointer transition-all duration-500 bg-white 
+          ${
+            activeSection === "rooms"
+              ? "scale-110 opacity-100 shadow-2xl shadow-gray-600"
+              : "scale-90 opacity-50 hover:scale-105 shadow-lg shadow-gray-400"
+          }`}
           onClick={() => handleSectionClick("rooms", roomRef)}
         >
           <img src={hotel} className="h-16 w-16 md:h-20 md:w-20" alt="Hotel Logo" />

@@ -6,6 +6,7 @@ import { Destination } from "./components/Destination";
 import { Contact } from "./components/Contact";
 import { About } from "./components/About";
 import Packages from "./components/Packages";
+import ScrollToTop from "./components/ScrollToTop";
 import PackageDetails from "./components/PackageDetails";
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop/>
       <Navbar />
       <Routes>
         <Route path="/" element={
