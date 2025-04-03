@@ -11,7 +11,7 @@ const Information = () => {
     <>
       <div className="container mx-auto px-4 py-12 text-start">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-          Popular things to do
+          Our Services
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
           <div className="flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-lg transition-transform hover:scale-110 hover:shadow-2xl hover:shadow-gray-500 duration-300">
@@ -48,15 +48,14 @@ const Information = () => {
       </div>
       <div className="container mx-auto px-4 py-12 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-          Why choose Tourz
+          Why choose Us
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center text-center">
             <span className="text-orange-500 text-4xl">🎟️</span>
             <h3 className="text-lg font-semibold mt-4">Ultimate flexibility</h3>
             <p className="text-gray-600 mt-2">
-              You're in control, with free cancellation and payment options to
-              satisfy any plan or budget.
+            You're in control, with payment options to satisfy any plan or budget.
             </p>
           </div>
           <div className="flex flex-col items-center text-center">
@@ -71,12 +70,12 @@ const Information = () => {
             <span className="text-orange-500 text-4xl">💎</span>
             <h3 className="text-lg font-semibold mt-4">Quality at our core</h3>
             <p className="text-gray-600 mt-2">
-              High-quality standards. Millions of reviews. A Tourz company.
+            Backed by hundreds of reviews and held to the highest standards. Madurai Tour Planner.
             </p>
           </div>
           <div className="flex flex-col items-center text-center">
             <span className="text-orange-500 text-4xl">🏆</span>
-            <h3 className="text-lg font-semibold mt-4">Award-winning support</h3>
+            <h3 className="text-lg font-semibold mt-4">Always Here for You</h3>
             <p className="text-gray-600 mt-2">
               New price? New plan? No problem. We're here to help, 24/7.
             </p>

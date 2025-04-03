@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
-import { Navbar } from "../src/components/Header/Navbar";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/Header/Navbar";
 import { Home } from "./components/Home";
 import { Destination } from "./components/Destination";
 import { Contact } from "./components/Contact";
-import { Gallery } from "./components/Gallery";
 import { About } from "./components/About";
 import Packages from "./components/Packages";
-import Demo from "./components/demo";
+import PackageDetails from "./components/PackageDetails";
 
 const App = () => {
+  const [selectedPackage, setSelectedPackage] = useState(null);
+
   useEffect(() => {
     var script = document.createElement("script");
     script.src = "https://embed.tawk.to/67bad14b899774190ded0296/1ikos34es";
@@ -20,22 +22,27 @@ const App = () => {
     script.onload = () => {
       window.Tawk_API = window.Tawk_API || {};
       window.Tawk_API.onLoad = function () {
-        window.Tawk_API.hide(); // Hide chat box initially
+        window.Tawk_API.hide();
       };
     };
   }, []);
 
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Home />
-      <Destination />
-      <Packages />
-      <About />
-      <Contact />
-      {/* <Demo /> */}
-      {/* <Gallery /> */}
-    </div>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Home />
+            <Destination />
+            <Packages setSelectedPackage={setSelectedPackage} />
+            <About />
+            <Contact />
+          </>
+        } />
+        <Route path="/package-details/:id" element={<PackageDetails />} />
+      </Routes>
+    </Router>
   );
 };
 

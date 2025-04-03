@@ -28,7 +28,7 @@ export const Home = () => {
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect="fade"
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 10000000, disableOnInteraction: false }}
         loop={true}
         className="h-[500px] sm:h-[600px] md:h-[700px] w-full"
       >
@@ -54,7 +54,7 @@ export const Home = () => {
               </div>
 
               {/* Quote */}
-              <h2 className="text-white text-2xl sm:text-4xl md:text-5xl font-bold max-w-xl leading-tight">
+              <h2 className="text-white sm:text-4xl md:text-5xl font-bold max-w-xl leading-tight">
                 {slide.quote}
               </h2>
 
