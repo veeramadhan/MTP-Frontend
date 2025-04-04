@@ -35,7 +35,7 @@ const PackageDetails = () => {
       </div>
 
       {/* Two-Column Layout */}
-      <div className="max-w-7xl bg-green-50 mx-auto px-4 md:px-6 py-8 md:py-12 flex flex-col md:flex-row gap-6 md:gap-10">
+      <div className="max-w-8xl bg-green-50 mx-auto px-4 md:px-6 py-8 md:py-12 flex flex-col md:flex-row gap-6 md:gap-10">
         {/* Left Content (Itinerary) */}
         <div className="w-full md:w-3/5">
           <div className="text-left mb-6">
