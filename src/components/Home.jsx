@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import axios from "axios";
 import { MapPin } from "lucide-react";
+import Loader from "./Loader/Loader";
 
 export const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [slidePic, setSlidePic] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchSliderData = async () => {
@@ -19,6 +21,8 @@ export const Home = () => {
         setSlidePic(response.data);
       } catch (error) {
         console.error("Error fetching slider data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -30,7 +34,9 @@ export const Home = () => {
       id="home"
       className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50"
     >
-      {slidePic.length > 0 && (
+      {isLoading ? (
+        <Loader />
+      ) : slidePic.length > 0 ? (
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -107,6 +113,8 @@ export const Home = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      ) : (
+        <p className="text-center text-gray-500">No slides available</p>
       )}
     </section>
   );
