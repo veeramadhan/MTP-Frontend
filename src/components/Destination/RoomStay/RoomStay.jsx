@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 
 const roomImages = [
   [
-    require("../../../assets/Rooms/room1.jpeg"),
-    require("../../../assets/Rooms/room2.jpeg"),
-    require("../../../assets/Rooms/room3.jpeg"),
+    require("../../../assets/Rooms/dew1.jpg"),
+    require("../../../assets/Rooms/dew2.jpg"),
+    require("../../../assets/Rooms/dew3.jpg"),
   ],
   [
-    require("../../../assets/Rooms/room1.jpeg"),
-    require("../../../assets/Rooms/room2.jpeg"),
-    require("../../../assets/Rooms/room3.jpeg"),
+    require("../../../assets/Rooms/anton.jpg"),
+    require("../../../assets/Rooms/anton1.jpg"),
+    require("../../../assets/Rooms/anton3.jpeg"),
+    require("../../../assets/Rooms/anto4.jpg"),
   ],
   [
-    require("../../../assets/Rooms/room1.jpeg"),
-    require("../../../assets/Rooms/room2.jpeg"),
-    require("../../../assets/Rooms/room3.jpeg"),
+    require("../../../assets/Rooms/lux.jpg"),
+    require("../../../assets/Rooms/lux1.jpg"),
+    require("../../../assets/Rooms/lux2.jpg"),
   ],
 ];
 
@@ -91,7 +92,7 @@ const RoomStay = ({ showRooms }) => {
           </div>
 
           <p className="text-sm text-gray-600 mt-2 text-center">
-            A luxurious stay with all the comforts you need.
+           Three choices. One promise – comfort that feels just right.
           </p>
         </div>
       ))}
