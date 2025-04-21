@@ -1,12 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-scroll";
-import { Facebook, Instagram, Youtube, Send } from "lucide-react";
+import { Facebook, Instagram, Youtube, Send, Menu, X } from "lucide-react";
 import mtp from "../../assets/logo/mtp.png";
-
 import upi from "../../assets/images/upi.jpg";
 import gpay from "../../assets/images/gpay.jpg";
 import phonepe from "../../assets/images/phonepe.png";
 
 const HomeLayout = ({ navLinks, children }) => {
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
     <div>
       <header>
@@ -52,41 +57,55 @@ const HomeLayout = ({ navLinks, children }) => {
             </div>
           </div>
         </div>
-        <nav className="bg-white shadow-md w-full fixed top-0 z-50 sticky">
+        <nav className="bg-white shadow-md w-full  top-0 z-50 sticky">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
+              {/* Logo */}
               <div className="flex items-center">
                 <img src={mtp} alt="Logo" className="h-40" />
               </div>
+
+              {/* Desktop links */}
               <div className="hidden md:flex space-x-6">
-                {navLinks.map((value, key) => (
+                {navLinks.map((value) => (
                   <Link
-                  key={value.key} 
+                    key={value.key}
                     to={value.key}
                     smooth={true}
                     duration={500}
-                    className="text-gray-700 hover:text-green-600  cursor-pointer text-xl"
+                    className="text-gray-700 hover:text-green-600 cursor-pointer text-xl"
                   >
                     {value.value}
                   </Link>
                 ))}
               </div>
+
+              {/* Hamburger menu */}
+              <div className="md:hidden">
+                <button onClick={toggleMobileMenu} className="text-gray-700">
+                  {isMobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+                </button>
+              </div>
             </div>
           </div>
 
-          <div className="md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4  py-4">
-            {navLinks.map((value, key) => (
-              <Link
-                key={value.key} 
-                to={value.key}
-                smooth={true}
-                duration={500}
-                className="text-gray-700 hover:text-green-600  cursor-pointer text-xl"
-              >
-                {value.value}
-              </Link>
-            ))}
-          </div>
+          {/* Mobile menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4 py-4">
+              {navLinks.map((value) => (
+                <Link
+                  key={value.key}
+                  to={value.key}
+                  smooth={true}
+                  duration={500}
+                  onClick={toggleMobileMenu}
+                  className="text-gray-700 hover:text-green-600 cursor-pointer text-xl"
+                >
+                  {value.value}
+                </Link>
+              ))}
+            </div>
+          )}
         </nav>
       </header>
 

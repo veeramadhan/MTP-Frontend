@@ -17,7 +17,7 @@ export const Packages = () => {
           "http://127.0.0.1:8000/places"
         );
         const data = await response.json();
-        console.log(data);
+        console.log("data",data);
         setPackages(data.places[0] || {});
       } catch (error) {
         console.error("Error fetching data:", error);

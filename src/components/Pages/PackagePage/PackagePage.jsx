@@ -21,21 +21,20 @@ function PackagePage() {
   const pkg = location.state?.pkg;
   const [activeSection, setActiveSection] = useState("tripDetails");
 
-  const fetchPackage = async () => {
+    const fetchPackage = async () => {
     try {
       const response = await axios.get(
         `http://127.0.0.1:8000/get-package-details/${state}/${place}/${packageName}`
       );
       setPackageDetails(response.data.package);
-      console.log("response.data.package",response.data.package)
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching package details:", error);
     }
   };
 
   useEffect(() => {
     fetchPackage();
-  }, [packageName]);
+  }, [state, place, packageName]);
 
   const navLinks = [];
 

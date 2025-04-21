@@ -15,20 +15,20 @@ function Homepage() {
       value: "Home",
     },
     {
-      key: "packages",
-      value: "Packages",
+      key: "destination",
+      value: "Destination",
     },
     {
-      key: "contact",
-      value: "Contact",
+      key: "packages",
+      value: "Packages",
     },
     {
       key: "about-us",
       value: "About us",
     },
     {
-      key: "destination",
-      value: "Destination",
+      key: "contact",
+      value: "Contact",
     },
   ];
 
