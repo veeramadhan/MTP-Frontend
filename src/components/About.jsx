@@ -3,7 +3,7 @@ import global from "../assets/images/global.svg";
 
 export const About = () => {
   return (
-    <section id="About" className="w-full bg-green-50 py-12">
+    <section id="about-us" className="w-full bg-green-50 py-12">
       <div className="container mx-auto px-6 flex flex-wrap lg:flex-nowrap items-center justify-between">
         {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">

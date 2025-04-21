@@ -17,7 +17,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchSliderData = async () => {
       try {
-        const response = await axios.get("https://mtp-backend-45q8.onrender.com/slider-pics");
+        const response = await axios.get("http://127.0.0.1:8000/slider-pics");
         setSlidePic(response.data);
       } catch (error) {
         console.error("Error fetching slider data:", error);
@@ -28,7 +28,7 @@ export const Home = () => {
 
     fetchSliderData();
   }, []);
-
+// https://mtp-backend-45q8.onrender.com/
   return (
     <section
       id="home"
