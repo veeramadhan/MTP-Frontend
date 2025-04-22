@@ -17,7 +17,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchSliderData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/slider-pics");
+        const response = await axios.get("https://mtp-backend-45q8.onrender.com/slider-pics");
         setSlidePic(response.data);
       } catch (error) {
         console.error("Error fetching slider data:", error);
@@ -32,7 +32,7 @@ export const Home = () => {
   return (
     <section
       id="home"
-      className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50"
+      className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50 scroll-mt-20"
     >
       {isLoading ? (
         <Loader />

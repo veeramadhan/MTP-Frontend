@@ -13,7 +13,7 @@ import HomeLayout from "../../Layouts/HomeLayout";
 
 function PackagePage() {
 
-  const { state, place, packageName } = useParams();
+  const { state,  packageName } = useParams();
   const [packageDetails, setPackageDetails] = useState([]);
 
     const location = useLocation();
@@ -24,7 +24,7 @@ function PackagePage() {
     const fetchPackage = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/get-package-details/${state}/${place}/${packageName}`
+        `https://mtp-backend-45q8.onrender.com/get-package-details/${state}/${packageName}`
       );
       setPackageDetails(response.data.package);
     } catch (error) {
@@ -34,7 +34,7 @@ function PackagePage() {
 
   useEffect(() => {
     fetchPackage();
-  }, [state, place, packageName]);
+  }, [state, packageName]);
 
   const navLinks = [];
 
@@ -42,7 +42,7 @@ function PackagePage() {
     <HomeLayout navLinks={navLinks}>
       <section className="relative w-full bg-gray-50">
         <div className="relative w-full h-[40vh] md:h-[50vh]">
-          {packageDetails.image}
+          {/* {packageDetails.image} */}
           <img
             src={packageDetails.image}
             alt={packageDetails.title}

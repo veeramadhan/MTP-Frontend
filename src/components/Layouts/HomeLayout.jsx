@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
 import { Facebook, Instagram, Youtube, Send, Menu, X } from "lucide-react";
-import mtp from "../../assets/logo/mtp.png";
+import mtpm from "../../assets/logo/mtpm.png";
 import upi from "../../assets/images/upi.jpg";
 import gpay from "../../assets/images/gpay.jpg";
 import phonepe from "../../assets/images/phonepe.png";
 
 const HomeLayout = ({ navLinks, children }) => {
-    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -57,12 +57,14 @@ const HomeLayout = ({ navLinks, children }) => {
             </div>
           </div>
         </div>
+        </header>
+        <div>
         <nav className="bg-white shadow-md w-full  top-0 z-50 sticky">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
               <div className="flex items-center">
-                <img src={mtp} alt="Logo" className="h-40" />
+                <img src={mtpm} alt="Logo" className="h-40 w-auto md:w-52" />
               </div>
 
               {/* Desktop links */}
@@ -83,7 +85,11 @@ const HomeLayout = ({ navLinks, children }) => {
               {/* Hamburger menu */}
               <div className="md:hidden">
                 <button onClick={toggleMobileMenu} className="text-gray-700">
-                  {isMobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+                  {isMobileMenuOpen ? (
+                    <X className="h-8 w-8" />
+                  ) : (
+                    <Menu className="h-8 w-8" />
+                  )}
                 </button>
               </div>
             </div>
@@ -107,7 +113,7 @@ const HomeLayout = ({ navLinks, children }) => {
             </div>
           )}
         </nav>
-      </header>
+      
 
       {children}
 
@@ -201,6 +207,7 @@ const HomeLayout = ({ navLinks, children }) => {
           </p>
         </div>
       </footer>
+      </div>
     </div>
   );
 };

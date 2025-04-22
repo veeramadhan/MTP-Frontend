@@ -1,28 +1,35 @@
 import React, { useEffect } from "react";
 
 const TalkWithUs = () => {
-
   useEffect(() => {
-    var script = document.createElement("script");
+    const script = document.createElement("script");
     script.src = "https://embed.tawk.to/67bad14b899774190ded0296/1ikos34es";
     script.async = true;
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
     document.body.appendChild(script);
 
+    // Wait for Tawk to load, then hide the widget
     script.onload = () => {
       window.Tawk_API = window.Tawk_API || {};
       window.Tawk_API.onLoad = function () {
-        window.Tawk_API.hide();
+        window.Tawk_API.hide(); // Hides the widget on load
       };
     };
   }, []);
 
+  // Function to show & open the chat on button click
+  const handleChatOpen = () => {
+    if (window.Tawk_API) {
+      window.Tawk_API.show();
+      window.Tawk_API.maximize(); // opens the chat window
+    }
+  };
+
   return (
+    <>
       <a
-        href="https://wa.me/919578904139"
-        target="_blank"
-        rel="noopener noreferrer"
+        onClick={handleChatOpen}
         style={{
           position: "fixed",
           left: "20px",
@@ -41,11 +48,12 @@ const TalkWithUs = () => {
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="Chat on WhatsApp"
+          alt="Chat"
           style={{ width: "35px", height: "35px" }}
         />
       </a>
+    </>
   );
-}
+};
 
 export default TalkWithUs;

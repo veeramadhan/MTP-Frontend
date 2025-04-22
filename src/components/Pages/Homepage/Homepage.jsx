@@ -6,6 +6,7 @@ import { Destination } from "../../Destination";
 import { Home } from "../../Home";
 import { Packages } from "../../Packages";
 import { About } from "../../About";
+import { OurPromise } from "../../OurPromise"
 
 function Homepage() {
 
@@ -23,6 +24,11 @@ function Homepage() {
       value: "Packages",
     },
     {
+      key: "ourpromise",
+      value: "OurPromise"
+    },
+
+    {
       key: "about-us",
       value: "About us",
     },
@@ -33,10 +39,11 @@ function Homepage() {
   ];
 
   return (
-    <HomeLayout navLinks={navLinks}>
+    <HomeLayout navLinks={navLinks} >
       <Home />
       <Destination />
       <Packages />
+      <OurPromise />
       <About />
     </HomeLayout>
   );

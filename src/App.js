@@ -11,7 +11,7 @@ const App = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/package-details/:state/:place/:packageName" element={<PackagePage />} />
+        <Route path="/package-details/:state/:packageName" element={<PackagePage />} />
       </Routes>
       <TalkWithUs />
     </Router>
