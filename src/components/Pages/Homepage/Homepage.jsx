@@ -7,6 +7,7 @@ import { Home } from "../../Home";
 import { Packages } from "../../Packages";
 import { About } from "../../About";
 import { OurPromise } from "../../OurPromise"
+import { Contact } from "../../Contact";
 
 function Homepage() {
 
@@ -45,6 +46,7 @@ function Homepage() {
       <Packages />
       <OurPromise />
       <About />
+      <Contact />
     </HomeLayout>
   );
 }
