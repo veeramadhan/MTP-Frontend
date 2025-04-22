@@ -28,11 +28,11 @@ export const Home = () => {
 
     fetchSliderData();
   }, []);
-
+// https://mtp-backend-45q8.onrender.com/
   return (
     <section
       id="home"
-      className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50"
+      className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50 scroll-mt-20"
     >
       {isLoading ? (
         <Loader />
