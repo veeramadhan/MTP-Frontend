@@ -28,7 +28,7 @@ export const Home = () => {
 
     fetchSliderData();
   }, []);
-// https://mtp-backend-45q8.onrender.com/
+
   return (
     <section
       id="home"
@@ -36,7 +36,7 @@ export const Home = () => {
     >
       {isLoading ? (
         <Loader />
-      ) : slidePic.length > 0 ? (
+      ) : slidePic.length > 0? (
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"

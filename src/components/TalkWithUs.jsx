@@ -2,19 +2,23 @@ import React, { useEffect } from "react";
 
 const TalkWithUs = () => {
   useEffect(() => {
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+
     const script = document.createElement("script");
     script.src = "https://embed.tawk.to/67bad14b899774190ded0296/1ikos34es";
     script.async = true;
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
+
     document.body.appendChild(script);
 
-    // Wait for Tawk to load, then hide it
     script.onload = () => {
-      window.Tawk_API = window.Tawk_API || {};
-      window.Tawk_API.onLoad = function () {
-        window.Tawk_API.hide();
-      };
+      if (window.Tawk_API) {
+        window.Tawk_API.onLoad = function () {
+          window.Tawk_API.hide();
+        };
+      }
     };
   }, []);
 
@@ -72,7 +76,7 @@ const TalkWithUs = () => {
         aria-label="Chat with Support"
         style={{
           position: "fixed",
-          right: "20px",
+          right: "25px",
           bottom: "20px",
           zIndex: "1000",
           backgroundColor: "#007bff",
@@ -87,11 +91,7 @@ const TalkWithUs = () => {
           border: "none",
         }}
       >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/4205/4205700.png"
-          alt="Support"
-          style={{ width: "35px", height: "35px" }}
-        />
+      
       </button>
     </>
   );
