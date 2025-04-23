@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export const Packages = () => {
   const [packages, setPackages] = useState({});
-  const [activeTab, setActiveTab] = useState("kerala");
+  const [activeTab, setActiveTab] = useState("Kerala");
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 8;
