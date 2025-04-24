@@ -26,7 +26,7 @@ function Homepage() {
     },
     {
       key: "ourpromise",
-      value: "OurPromise"
+      value: "Our Promise"
     },
 
     {

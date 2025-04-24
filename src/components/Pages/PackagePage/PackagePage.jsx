@@ -42,7 +42,6 @@ function PackagePage() {
     <HomeLayout navLinks={navLinks}>
       <section className="relative w-full bg-gray-50">
         <div className="relative w-full h-[40vh] md:h-[50vh]">
-          {/* {packageDetails.image} */}
           <img
             src={packageDetails.image}
             alt={packageDetails.title}
