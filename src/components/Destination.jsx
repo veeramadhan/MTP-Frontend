@@ -38,7 +38,24 @@ import Information from "./Destination/information/Information";
       {/* Scrollable container for mobile view */}
       <div className="flex justify-center items-center gap-6 mt-20 sm:flex-nowrap overflow-x-auto w-full px-4 py-4 sm:px-0">
 
-        {/* Information Section */}
+      {/* Rooms Section */}
+        <div
+          className={`flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-xl border-gray-300 cursor-pointer transition-all duration-500 bg-white 
+          ${
+            activeSection === "rooms"
+              ? "scale-110 opacity-100 shadow-2xl "
+              : "scale-90 opacity-50 hover:scale-105 shadow-lg shadow-gray-400"
+          }`}
+          onClick={() => handleSectionClick("rooms", roomRef)}
+        >
+          <img src={hotel} className="h-12 w-12 md:h-16 md:w-16" alt="Hotel Logo" />
+          <p className="text-sm md:text-lg font-medium mt-2">Rooms</p>
+        </div>
+     
+
+       
+
+           {/* Information Section */}
         <div
           className={`flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-xl border-gray-300 cursor-pointer transition-all duration-500 bg-white 
           ${
@@ -52,7 +69,7 @@ import Information from "./Destination/information/Information";
           <p className="text-sm md:text-lg font-medium mt-2">Information</p>
         </div>
 
-        {/* Bus Section */}
+         {/* Bus Section */}
         <div
           className={`flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-xl border-gray-300 cursor-pointer transition-all duration-500 bg-white 
           ${
@@ -66,26 +83,16 @@ import Information from "./Destination/information/Information";
           <p className="text-sm md:text-lg font-medium mt-2">Bus</p>
         </div>
 
-        {/* Rooms Section */}
-        <div
-          className={`flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-xl border-gray-300 cursor-pointer transition-all duration-500 bg-white 
-          ${
-            activeSection === "rooms"
-              ? "scale-110 opacity-100 shadow-2xl "
-              : "scale-90 opacity-50 hover:scale-105 shadow-lg shadow-gray-400"
-          }`}
-          onClick={() => handleSectionClick("rooms", roomRef)}
-        >
-          <img src={hotel} className="h-12 w-12 md:h-16 md:w-16" alt="Hotel Logo" />
-          <p className="text-sm md:text-lg font-medium mt-2">Rooms</p>
         </div>
-      </div>
 
       {/* Render Selected Section */}
       <div className="w-full mt-6 sm:mt-10">
+        
+        
+         <div ref={roomRef}>{activeSection === "rooms" && <RoomStay />}</div>
         <div ref={infoRef}>{activeSection === "information" && <Information />}</div>
         <div ref={busRef}>{activeSection === "bus" && <Bus />}</div>
-        <div ref={roomRef}>{activeSection === "rooms" && <RoomStay />}</div>
+       
       </div>
     </section>
   );
