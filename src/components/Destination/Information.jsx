@@ -1,13 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import IV from "../../../assets/logo/IV.jpg";
-import couple from "../../../assets/logo/couple.jpg";
-import frds from "../../../assets/logo/frds.jpg";
-import fam from "../../../assets/logo/fam.jpg";
-import school from "../../../assets/logo/school.jpg";
-import companys from "../../../assets/logo/companys.jpg";
+"use client";
 
-// Animation Variants
+import { motion } from "framer-motion";
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: (i = 1) => ({
@@ -61,17 +55,16 @@ const Information = () => {
   ];
 
   const services = [
-    { img: IV, title: "Industrial Visit" },
-    { img: couple, title: "Couples Trip" },
-    { img: school, title: "School Trip" },
-    { img: fam, title: "Family Trip" },
-    { img: frds, title: "Friends Trip" },
-    { img: companys, title: "Company Trip" },
+    { img: "/assets/logo/IV.jpg", title: "Industrial Visit" },
+    { img: "/assets/logo/couple.jpg", title: "Couples Trip" },
+    { img: "/assets/logo/school.jpg", title: "School Trip" },
+    { img: "/assets/logo/fam.jpg", title: "Family Trip" },
+    { img: "/assets/logo/frds.jpg", title: "Friends Trip" },
+    { img: "/assets/logo/companys.jpg", title: "Company Trip" },
   ];
 
   return (
     <>
-      {/* Why Choose Us Section */}
       <div className="container mx-auto px-6 py-16 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12 tracking-wide">
           Why Choose Us
@@ -96,7 +89,6 @@ const Information = () => {
         </div>
       </div>
 
-      {/* Our Services Section */}
       <div className="container mx-auto px-6 py-16 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12 tracking-wide">
           Our Services
@@ -125,7 +117,7 @@ const Information = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span
-                    className="text-white text-3xl font-semibold transition-all duration-500 group-hover:scale-125 group-hover:rotate-3d"
+                    className="text-white text-3xl font-semibold transition-all duration-500 group-hover:scale-125"
                     style={{ transform: "translateZ(50px)" }}
                   >
                     {service.title}

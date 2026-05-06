@@ -1,6 +1,6 @@
-import React from "react";
+"use client";
+
 import { motion } from "framer-motion";
-import global from "../assets/images/global.svg";
 
 export const OurPromise = () => {
   const features = [
@@ -13,8 +13,6 @@ export const OurPromise = () => {
   return (
     <section id="ourpromise" className="w-full bg-green-50 py-12">
       <div className="container mx-auto px-6 flex flex-wrap lg:flex-nowrap items-center justify-between">
-        
-        {/* Left Content */}
         <motion.div
           className="w-full lg:w-1/2 space-y-4 text-center lg:text-left"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -31,7 +29,6 @@ export const OurPromise = () => {
             seamless travel planning.
           </p>
 
-          {/* Features */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {features.map(({ icon, text, bg, color }, index) => (
               <motion.div
@@ -48,7 +45,6 @@ export const OurPromise = () => {
             ))}
           </div>
 
-          {/* Buttons */}
           <div className="flex gap-4 justify-center lg:justify-start mt-6 items-center">
             <a
               href="https://www.youtube.com/@MaduraiTourPlanner"
@@ -79,7 +75,6 @@ export const OurPromise = () => {
           </div>
         </motion.div>
 
-        {/* Right Content - Image */}
         <motion.div
           className="w-full lg:w-1/2 flex justify-center mt-12 lg:mt-0 relative"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -88,7 +83,7 @@ export const OurPromise = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <img
-            src={global}
+            src="/assets/images/global.svg"
             alt="Tourists"
             className="w-full max-w-lg lg:max-w-none rounded-lg object-cover"
           />

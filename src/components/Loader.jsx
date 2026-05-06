@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 const Loader = () => {
   return (
@@ -132,12 +132,8 @@ const Loader = () => {
         </svg>
       </div>
 
-      {/* Animated "Loading" text with black to water-blue fill */}
       <div className="relative text-[48px] font-bold font-sans tracking-widest">
-        {/* Base text - black */}
         <span className="text-black">Loading</span>
-
-        {/* Overlay text - water blue with top-to-bottom fill animation */}
         <span className="absolute left-0 top-0 w-full h-full overflow-hidden animate-loaderMask">
           <span className="text-[#00BFFF]">Loading</span>
         </span>

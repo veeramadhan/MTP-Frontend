@@ -1,10 +1,8 @@
+"use client";
+
 import { useState } from "react";
 import { Link } from "react-scroll";
 import { Facebook, Instagram, Youtube, Send, Menu, X } from "lucide-react";
-import mtpm from "../../assets/logo/mtpm.png";
-import upi from "../../assets/images/upi.jpg";
-import gpay from "../../assets/images/gpay.jpg";
-import phonepe from "../../assets/images/phonepe.png";
 
 const HomeLayout = ({ navLinks, children }) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,6 +10,7 @@ const HomeLayout = ({ navLinks, children }) => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
+
   return (
     <div>
       <header>
@@ -19,7 +18,7 @@ const HomeLayout = ({ navLinks, children }) => {
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="text-white text-sm">
               <a
-                href="mailto:info@example.com"
+                href="mailto:maduraitourplanner@gmail.com"
                 className="flex items-center hover:text-green-400 transition-colors"
               >
                 <Send className="h-5 w-5" />
@@ -57,17 +56,15 @@ const HomeLayout = ({ navLinks, children }) => {
             </div>
           </div>
         </div>
-        </header>
-        <div>
-        <nav className="bg-white shadow-md w-full  top-0 z-50 sticky">
+      </header>
+      <div>
+        <nav className="bg-white shadow-md w-full top-0 z-50 sticky">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
-              {/* Logo */}
               <div className="flex items-center">
-                <img src={mtpm} alt="Logo" className="h-40 w-auto md:w-52" />
+                <img src="/assets/logo/mtpm.png" alt="Logo" className="h-40 w-auto md:w-52" />
               </div>
 
-              {/* Desktop links */}
               <div className="hidden md:flex space-x-6">
                 {navLinks.map((value) => (
                   <Link
@@ -82,7 +79,6 @@ const HomeLayout = ({ navLinks, children }) => {
                 ))}
               </div>
 
-              {/* Hamburger menu */}
               <div className="md:hidden">
                 <button onClick={toggleMobileMenu} className="text-gray-700">
                   {isMobileMenuOpen ? (
@@ -95,7 +91,6 @@ const HomeLayout = ({ navLinks, children }) => {
             </div>
           </div>
 
-          {/* Mobile menu */}
           {isMobileMenuOpen && (
             <div className="md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4 py-4">
               {navLinks.map((value) => (
@@ -113,11 +108,8 @@ const HomeLayout = ({ navLinks, children }) => {
             </div>
           )}
         </nav>
-      
 
-      {children}
-
-     
+        {children}
       </div>
     </div>
   );

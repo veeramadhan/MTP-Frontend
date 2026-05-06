@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Loader from "./Loader/Loader";
-import { generateSlug } from "../utils/generateSlug";
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Loader from "@/components/Loader";
 import { motion } from "framer-motion";
 
 export const Packages = () => {
@@ -10,7 +11,7 @@ export const Packages = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 8;
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchPackages = async () => {
@@ -28,7 +29,7 @@ export const Packages = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentPage(1); // Reset page when tab changes
+    setCurrentPage(1);
   }, [activeTab]);
 
   const isValidTab =
@@ -39,7 +40,6 @@ export const Packages = () => {
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = allPackages.slice(indexOfFirstCard, indexOfLastCard);
-
 
   return (
     <section
@@ -85,7 +85,7 @@ export const Packages = () => {
               ))}
           </motion.div>
 
-          {/* Packages Grid with Animations */}
+          {/* Packages Grid */}
           {isValidTab && (
             <>
               <motion.div
@@ -131,9 +131,14 @@ export const Packages = () => {
                       </p>
                       <div className="flex justify-between items-center mt-auto">
                         <p className="text-green-600 font-bold">{pkg.price}</p>
-                       <button
-                        className="bg-green-600 text-white px-4 py-2 text-sm rounded-lg transition-all hover:bg-blue-700"
-                        onClick={() => navigate(`/package-details/${activeTab}/${pkg.key}`)}>Explore</button>
+                        <button
+                          className="bg-green-600 text-white px-4 py-2 text-sm rounded-lg transition-all hover:bg-blue-700"
+                          onClick={() =>
+                            router.push(`/package-details/${activeTab}/${pkg.key}`)
+                          }
+                        >
+                          Explore
+                        </button>
                       </div>
                     </div>
                   </motion.div>
@@ -151,7 +156,6 @@ export const Packages = () => {
                   viewport={{ once: false }}
                 >
                   <ul className="inline-flex -space-x-px text-sm">
-                    {/* Prev */}
                     <li>
                       <button
                         onClick={() =>
@@ -180,7 +184,6 @@ export const Packages = () => {
                       </button>
                     </li>
 
-                    {/* Pages */}
                     {[...Array(totalPages)].map((_, i) => (
                       <li key={i}>
                         <button
@@ -196,7 +199,6 @@ export const Packages = () => {
                       </li>
                     ))}
 
-                    {/* Next */}
                     <li>
                       <button
                         onClick={() =>

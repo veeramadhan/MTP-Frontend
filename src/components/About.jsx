@@ -1,7 +1,8 @@
-import React, {  useEffect } from "react";
+"use client";
+
+import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import mtpm from "../assets/logo/mtpm.png";
 
 export const About = () => {
   const controls = useAnimation();
@@ -36,17 +37,15 @@ export const About = () => {
         animate={controls}
         className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-10 md:p-16 text-center"
       >
-        {/* Logo Image */}
         <div className="flex justify-center mb-8">
           <motion.img
-            src={mtpm}
+            src="/assets/logo/mtpm.png"
             alt="Madurai Tour Planner"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-green-300"
             variants={fadeInUp}
           />
         </div>
 
-        {/* Title */}
         <motion.h2
           variants={fadeInUp}
           className="text-4xl md:text-5xl font-bold text-green-700 mb-6"
@@ -54,7 +53,6 @@ export const About = () => {
           About Madurai Tour Planner
         </motion.h2>
 
-        {/* Description */}
         <motion.p
           variants={fadeInUp}
           className="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed"
@@ -65,7 +63,6 @@ export const About = () => {
           spiritual serenity, and warm hospitality like never before.
         </motion.p>
 
-        {/* Mission & Vision */}
         <div className="grid md:grid-cols-2 gap-10 text-left">
           <motion.div
             className="bg-green-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300"
@@ -94,7 +91,6 @@ export const About = () => {
           </motion.div>
         </div>
 
-        {/* Call-to-Action */}
         <motion.div variants={fadeInUp} className="mt-12">
           <a
             href="https://wa.me/919578904139"

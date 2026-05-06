@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+"use client";
+
+import { useEffect } from "react";
 
 const TalkWithUs = () => {
   useEffect(() => {
@@ -22,7 +24,6 @@ const TalkWithUs = () => {
     };
   }, []);
 
-  // WhatsApp button handler
   const handleWhatsAppChat = () => {
     const phoneNumber = "9578904139";
     const message = "Hello, I need assistance.";
@@ -30,7 +31,6 @@ const TalkWithUs = () => {
     window.open(whatsappUrl, "_blank");
   };
 
-  // Tawk.to button handler
   const handleTawkChat = () => {
     if (window.Tawk_API && typeof window.Tawk_API.show === "function") {
       window.Tawk_API.show();
@@ -42,7 +42,6 @@ const TalkWithUs = () => {
 
   return (
     <>
-      {/* WhatsApp Button - Left */}
       <button
         onClick={handleWhatsAppChat}
         aria-label="Chat on WhatsApp"
@@ -69,8 +68,6 @@ const TalkWithUs = () => {
           style={{ width: "35px", height: "35px" }}
         />
       </button>
-
-   
     </>
   );
 };

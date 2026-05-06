@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000"; // Backend URL
+const API_URL = "http://localhost:5000";
 
 export const fetchData = async () => {
   try {

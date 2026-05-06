@@ -1,42 +1,23 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import axios from "axios";
 import { MapPin } from "lucide-react";
-import Loader from "./Loader/Loader";
 
-export const Home = () => {
+export const Home = ({ sliderData = [] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slidePic, setSlidePic] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchSliderData = async () => {
-      try {
-        const response = await axios.get("https://mtp-backend-45q8.onrender.com/slider-pics");
-        setSlidePic(response.data);
-      } catch (error) {
-        console.error("Error fetching slider data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchSliderData();
-  }, []);
 
   return (
     <section
       id="home"
       className="h-full pt-20 px-4 md:px-10 lg:px-20 flex items-center justify-center bg-green-50 scroll-mt-20"
     >
-      {isLoading ? (
-        <Loader />
-      ) : slidePic.length > 0? (
+      {sliderData.length > 0 ? (
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -46,7 +27,7 @@ export const Home = () => {
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           className="h-[500px] sm:h-[600px] md:h-[700px] w-full"
         >
-          {slidePic.map((slide, index) => (
+          {sliderData.map((slide, index) => (
             <SwiperSlide key={index} className="relative flex items-center justify-center">
               <img
                 src={slide.img}
@@ -62,7 +43,6 @@ export const Home = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8 }}
                 >
-                  {/* Location */}
                   <motion.div
                     className="absolute top-6 sm:top-10 bg-orange-500 text-white text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 sm:py-2 rounded-full flex items-center gap-2"
                     initial={{ opacity: 0, y: -20 }}
@@ -73,7 +53,6 @@ export const Home = () => {
                     {slide.location || "Unknown Location"}
                   </motion.div>
 
-                  {/* Quote */}
                   <motion.h2
                     className="text-white sm:text-4xl md:text-5xl font-bold max-w-xl leading-tight"
                     initial={{ opacity: 0, x: -150 }}
@@ -84,7 +63,6 @@ export const Home = () => {
                     {slide.quote || "Explore your next journey!"}
                   </motion.h2>
 
-                  {/* Subtext */}
                   <motion.p
                     className="text-white text-sm sm:text-lg mt-2 sm:mt-3 opacity-80 max-w-md sm:max-w-xl"
                     initial={{ opacity: 0, x: 150 }}
@@ -95,7 +73,6 @@ export const Home = () => {
                     {slide.subtext || "Start your trip with MTP"}
                   </motion.p>
 
-                  {/* Button */}
                   <motion.div
                     className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-4"
                     initial={{ opacity: 0, scale: 0.8 }}

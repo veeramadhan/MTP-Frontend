@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 
 const roomImages = [
   [
-    require("../../../assets/Rooms/dew1.jpg"),
-    require("../../../assets/Rooms/dew2.jpg"),
-    require("../../../assets/Rooms/dew3.jpg"),
+    "/assets/Rooms/dew1.jpg",
+    "/assets/Rooms/dew2.jpg",
+    "/assets/Rooms/dew3.jpg",
   ],
   [
-    require("../../../assets/Rooms/anton.jpg"),
-    require("../../../assets/Rooms/anton1.jpg"),
-    require("../../../assets/Rooms/anton3.jpeg"),
-    require("../../../assets/Rooms/anto4.jpg"),
+    "/assets/Rooms/anton.jpg",
+    "/assets/Rooms/anton1.jpg",
+    "/assets/Rooms/anton3.jpeg",
+    "/assets/Rooms/anto4.jpg",
   ],
   [
-    require("../../../assets/Rooms/lux.jpg"),
-    require("../../../assets/Rooms/lux1.jpg"),
-    require("../../../assets/Rooms/lux2.jpg"),
+    "/assets/Rooms/lux.jpg",
+    "/assets/Rooms/lux1.jpg",
+    "/assets/Rooms/lux2.jpg",
   ],
 ];
 
@@ -65,7 +67,6 @@ const RoomStay = ({ showRooms }) => {
         >
           <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">{roomTypes[roomIdx]}</h3>
 
-          {/* Image Container */}
           <div className="relative w-full h-[200px] sm:h-[240px] md:h-[260px] overflow-hidden rounded-md">
             <img
               src={images[currentIndex[roomIdx]]}
@@ -74,7 +75,6 @@ const RoomStay = ({ showRooms }) => {
               onClick={() => setFullscreenImage(images[currentIndex[roomIdx]])}
             />
 
-            {/* Navigation Buttons */}
             <button
               onClick={() => goPrev(roomIdx)}
               className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full 
@@ -92,12 +92,11 @@ const RoomStay = ({ showRooms }) => {
           </div>
 
           <p className="text-sm text-gray-600 mt-2 text-center">
-           Three choices. One promise – comfort that feels just right.
+            Three choices. One promise – comfort that feels just right.
           </p>
         </div>
       ))}
 
-      {/* Full-Screen Image Modal */}
       {fullscreenImage && (
         <div
           className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
