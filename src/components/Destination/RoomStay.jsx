@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const roomImages = [
@@ -24,7 +24,7 @@ const roomImages = [
 
 const roomTypes = ["Standard", "Deluxe", "Luxury"];
 
-const RoomStay = ({ showRooms }) => {
+const RoomStay = ({ showRooms = true }) => {
   const [currentIndex, setCurrentIndex] = useState(Array(roomImages.length).fill(0));
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
@@ -39,6 +39,16 @@ const RoomStay = ({ showRooms }) => {
 
     return () => clearInterval(interval);
   }, [showRooms]);
+
+  const closeFullscreen = useCallback(() => setFullscreenImage(null), []);
+
+  // Close fullscreen on Escape
+  useEffect(() => {
+    if (!fullscreenImage) return;
+    const handleKey = (e) => { if (e.key === "Escape") closeFullscreen(); };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [fullscreenImage, closeFullscreen]);
 
   const goNext = (roomIdx) => {
     setCurrentIndex((prevIndexes) =>
@@ -80,17 +90,19 @@ const RoomStay = ({ showRooms }) => {
 
             <button
               onClick={() => goPrev(roomIdx)}
+              aria-label="Previous image"
               className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full 
                          hover:bg-gray-600 transition focus:outline-none"
             >
-              ❮
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 6 10"><path strokeLinecap="round" strokeLinejoin="round" d="M5 1 1 5l4 4" /></svg>
             </button>
             <button
               onClick={() => goNext(roomIdx)}
+              aria-label="Next image"
               className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full 
                          hover:bg-gray-600 transition focus:outline-none"
             >
-              ❯
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 6 10"><path strokeLinecap="round" strokeLinejoin="round" d="m1 1 4 4-4 4" /></svg>
             </button>
           </div>
 
@@ -103,19 +115,22 @@ const RoomStay = ({ showRooms }) => {
       {fullscreenImage && (
         <div
           className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
-          onClick={() => setFullscreenImage(null)}
+          onClick={closeFullscreen}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Fullscreen image viewer"
         >
           <img
             src={fullscreenImage}
             alt="Fullscreen Room Image"
             className="max-w-full max-h-full object-contain"
-            loading="lazy"
           />
           <button
-            onClick={() => setFullscreenImage(null)}
+            onClick={closeFullscreen}
+            aria-label="Close fullscreen"
             className="absolute top-5 right-5 text-white text-3xl font-bold bg-gray-800 rounded-full w-10 h-10 flex items-center justify-center"
           >
-            ✕
+            &times;
           </button>
         </div>
       )}

@@ -1,1 +1,0 @@
-export const generateSlug = (title) => title.trim().toLowerCase().replace(/\s+/g, '-');

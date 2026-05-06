@@ -80,7 +80,7 @@ const Information = () => {
               initial="hidden"
               whileInView="visible"
               exit="exit"
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <span className="text-orange-500 text-5xl mb-4">{item.icon}</span>
               <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
@@ -105,7 +105,7 @@ const Information = () => {
               initial="hidden"
               whileInView="visible"
               exit="exit"
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <div
                 className="relative w-full h-60 rounded-xl overflow-hidden transition-all duration-500"

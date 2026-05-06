@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export const About = () => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: false });
+  const [ref, inView] = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {
@@ -98,10 +98,9 @@ export const About = () => {
             href="https://wa.me/919578904139"
             target="_blank"
             rel="noopener noreferrer"
+            className="bg-green-600 text-white py-3 px-8 rounded-full text-lg font-semibold shadow-md hover:bg-green-700 transition duration-300 inline-block"
           >
-            <button className="bg-green-600 text-white py-3 px-8 rounded-full text-lg font-semibold shadow-md hover:bg-green-700 transition duration-300">
-              Plan Your Journey
-            </button>
+            Plan Your Journey
           </a>
         </motion.div>
       </motion.div>

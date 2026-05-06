@@ -11,7 +11,7 @@ export const metadata = {
     title: "MTP - Best Travel Planning Services",
     description:
       "Plan your perfect trip with MTP! Get customized travel itineraries, best deals, and expert travel planning services.",
-    url: "https://yourwebsite.com",
+    url: "https://maduraitourplanner.com",
     type: "website",
   },
   twitter: {

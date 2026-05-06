@@ -16,9 +16,11 @@ const navLinks = [
   { key: "contact", value: "Contact" },
 ];
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://mtp-backend-45q8.onrender.com";
+
 async function getSliderData() {
   try {
-    const res = await fetch("https://mtp-backend-45q8.onrender.com/slider-pics", {
+    const res = await fetch(`${API_URL}/slider-pics`, {
       next: { revalidate: 60 },
     });
     if (!res.ok) return [];

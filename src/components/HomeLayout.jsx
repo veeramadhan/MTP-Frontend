@@ -1,19 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-scroll";
 import { Facebook, Instagram, Youtube, Send, Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const HomeLayout = ({ navLinks, children }) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isMobileMenuOpen]);
+
+  // Close on outside click
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const handleClick = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        closeMobileMenu();
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [isMobileMenuOpen, closeMobileMenu]);
+
+  // Close on Escape
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const handleKey = (e) => { if (e.key === "Escape") closeMobileMenu(); };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [isMobileMenuOpen, closeMobileMenu]);
 
   return (
     <div>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-green-600 focus:text-white focus:px-4 focus:py-2 focus:rounded"
+      >
+        Skip to content
+      </a>
       <header>
         <div className="bg-[#222] py-5 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -59,11 +94,11 @@ const HomeLayout = ({ navLinks, children }) => {
         </div>
       </header>
       <div>
-        <nav className="bg-white shadow-md w-full top-0 z-50 sticky">
+        <nav className="bg-white shadow-md w-full top-0 z-50 sticky" ref={menuRef}>
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Image src="/assets/logo/mtpm.png" alt="Logo" width={208} height={160} className="h-40 w-auto md:w-52" priority />
+                <Image src="/assets/logo/mtpm.png" alt="Madurai Tour Planner Logo" width={208} height={64} className="h-14 w-auto md:w-52" priority />
               </div>
 
               <div className="hidden md:flex space-x-6">
@@ -73,7 +108,9 @@ const HomeLayout = ({ navLinks, children }) => {
                     to={value.key}
                     smooth={true}
                     duration={500}
-                    className="text-gray-700 hover:text-green-600 cursor-pointer text-xl"
+                    spy={true}
+                    activeClass="text-green-600 font-semibold"
+                    className="text-gray-700 hover:text-green-600 cursor-pointer text-xl transition-colors"
                   >
                     {value.value}
                   </Link>
@@ -81,7 +118,12 @@ const HomeLayout = ({ navLinks, children }) => {
               </div>
 
               <div className="md:hidden">
-                <button onClick={toggleMobileMenu} className="text-gray-700">
+                <button
+                  onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+                  className="text-gray-700"
+                  aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                  aria-expanded={isMobileMenuOpen}
+                >
                   {isMobileMenuOpen ? (
                     <X className="h-8 w-8" />
                   ) : (
@@ -92,25 +134,31 @@ const HomeLayout = ({ navLinks, children }) => {
             </div>
           </div>
 
-          {isMobileMenuOpen && (
-            <div className="md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4 py-4">
-              {navLinks.map((value) => (
-                <Link
-                  key={value.key}
-                  to={value.key}
-                  smooth={true}
-                  duration={500}
-                  onClick={toggleMobileMenu}
-                  className="text-gray-700 hover:text-green-600 cursor-pointer text-xl"
-                >
-                  {value.value}
-                </Link>
-              ))}
-            </div>
-          )}
+          <div
+            className={`md:hidden bg-white border-t border-gray-200 flex flex-col items-center space-y-4 overflow-hidden transition-all duration-300 ease-in-out ${
+              isMobileMenuOpen ? "max-h-96 py-4" : "max-h-0 py-0"
+            }`}
+          >
+            {navLinks.map((value) => (
+              <Link
+                key={value.key}
+                to={value.key}
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="text-green-600 font-semibold"
+                onClick={closeMobileMenu}
+                className="text-gray-700 hover:text-green-600 cursor-pointer text-xl transition-colors"
+              >
+                {value.value}
+              </Link>
+            ))}
+          </div>
         </nav>
 
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
       </div>
     </div>
   );

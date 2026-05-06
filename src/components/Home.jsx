@@ -31,7 +31,7 @@ export const Home = ({ sliderData = [] }) => {
             <SwiperSlide key={index} className="relative flex items-center justify-center">
               <img
                 src={slide.img}
-                alt="Slide Image"
+                alt={slide.quote || `Slide ${index + 1}`}
                 className="w-full h-full object-cover rounded-[30px] sm:rounded-[40px] md:rounded-[50px]"
                 loading="lazy"
               />
@@ -54,7 +54,7 @@ export const Home = ({ sliderData = [] }) => {
                   </motion.div>
 
                   <motion.h2
-                    className="text-white sm:text-4xl md:text-5xl font-bold max-w-xl leading-tight"
+                    className="text-white text-2xl sm:text-4xl md:text-5xl font-bold max-w-xl leading-tight"
                     initial={{ opacity: 0, x: -150 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 150 }}
@@ -79,10 +79,10 @@ export const Home = ({ sliderData = [] }) => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.8 }}
                   >
-                    <Link to="packages" smooth={true} duration={500}>
-                      <button className="bg-green-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg font-medium">
-                        Book A Trip
-                      </button>
+                    <Link to="packages" smooth={true} duration={500}
+                      className="bg-green-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg font-medium cursor-pointer hover:bg-green-600 transition-colors inline-block"
+                    >
+                      Book A Trip
                     </Link>
                   </motion.div>
                 </motion.div>

@@ -22,6 +22,12 @@ const TalkWithUs = () => {
         };
       }
     };
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
   }, []);
 
   const handleWhatsAppChat = () => {

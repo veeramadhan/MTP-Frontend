@@ -9,6 +9,7 @@ export const Packages = () => {
   const [packages, setPackages] = useState({});
   const [activeTab, setActiveTab] = useState("Kerala");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 8;
   const router = useRouter();
@@ -17,10 +18,11 @@ export const Packages = () => {
     const fetchPackages = async () => {
       try {
         const response = await fetch("https://mtp-backend-45q8.onrender.com/places");
+        if (!response.ok) throw new Error("Failed to load packages");
         const data = await response.json();
         setPackages(data.places[0] || {});
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } catch (err) {
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -48,6 +50,16 @@ export const Packages = () => {
     >
       {loading ? (
         <Loader />
+      ) : error ? (
+        <div className="text-center py-12">
+          <p className="text-red-600 text-lg mb-4">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
+          >
+            Retry
+          </button>
+        </div>
       ) : (
         <>
           <motion.h2
@@ -55,7 +67,7 @@ export const Packages = () => {
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             Tourist Attractions
           </motion.h2>
@@ -66,7 +78,7 @@ export const Packages = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             {Object.keys(packages)
               .filter((tab) => tab !== "_id")
@@ -92,7 +104,7 @@ export const Packages = () => {
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center w-full"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 variants={{
                   hidden: {},
                   visible: {
@@ -103,11 +115,11 @@ export const Packages = () => {
                 {currentCards.map((pkg, index) => (
                   <motion.div
                     key={`${pkg.id}-${index}`}
-                    className="w-80 sm:w-96 h-[380px] bg-white shadow-lg rounded-lg overflow-hidden flex flex-col"
+                    className="w-full max-w-sm h-[380px] bg-white shadow-lg rounded-lg overflow-hidden flex flex-col"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: false, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <img
                       src={pkg.image}
@@ -133,7 +145,7 @@ export const Packages = () => {
                       <div className="flex justify-between items-center mt-auto">
                         <p className="text-green-600 font-bold">{pkg.price}</p>
                         <button
-                          className="bg-green-600 text-white px-4 py-2 text-sm rounded-lg transition-all hover:bg-blue-700"
+                          className="bg-green-600 text-white px-4 py-2 text-sm rounded-lg transition-all hover:bg-green-700"
                           onClick={() =>
                             router.push(`/package-details/${activeTab}/${pkg.key}`)
                           }
@@ -154,7 +166,7 @@ export const Packages = () => {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                 >
                   <ul className="inline-flex -space-x-px text-sm">
                     <li>
@@ -163,6 +175,7 @@ export const Packages = () => {
                           setCurrentPage((prev) => Math.max(prev - 1, 1))
                         }
                         disabled={currentPage === 1}
+                        aria-label="Previous page"
                         className={`flex items-center justify-center w-8 h-8 rounded-s-lg border border-gray-300 ${
                           currentPage === 1
                             ? "text-gray-400 bg-gray-100 cursor-not-allowed"
@@ -189,6 +202,8 @@ export const Packages = () => {
                       <li key={i}>
                         <button
                           onClick={() => setCurrentPage(i + 1)}
+                          aria-label={`Page ${i + 1}`}
+                          aria-current={currentPage === i + 1 ? "page" : undefined}
                           className={`w-8 h-8 border border-gray-300 ${
                             currentPage === i + 1
                               ? "bg-black text-white"
@@ -208,6 +223,7 @@ export const Packages = () => {
                           )
                         }
                         disabled={currentPage === totalPages}
+                        aria-label="Next page"
                         className={`flex items-center justify-center w-8 h-8 rounded-e-lg border border-gray-300 ${
                           currentPage === totalPages
                             ? "text-gray-400 bg-gray-100 cursor-not-allowed"

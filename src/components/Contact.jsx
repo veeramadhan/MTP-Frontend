@@ -11,10 +11,13 @@ export const Contact = () => {
         <div>
           <h2 className="text-2xl font-bold">MTP</h2>
           <p className="mt-2">Want To Take Tour Packages?</p>
-          <Link to="packages" smooth={true} duration={500}>
-            <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded-md">
-              Book A Tour
-            </button>
+          <Link
+            to="packages"
+            smooth={true}
+            duration={500}
+            className="inline-block mt-4 bg-green-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-green-600 transition-colors"
+          >
+            Book A Tour
           </Link>
         </div>
 
@@ -23,16 +26,24 @@ export const Contact = () => {
           <h3 className="text-xl font-semibold">Quick Links</h3>
           <ul className="mt-2 space-y-2">
             <li>
-              <a href="#home" className="hover:text-green-400">Home</a>
+              <Link to="home" smooth={true} duration={500} className="hover:text-green-400 cursor-pointer">
+                Home
+              </Link>
             </li>
             <li>
-              <a href="#destination" className="hover:text-green-400">Destination</a>
+              <Link to="destination" smooth={true} duration={500} className="hover:text-green-400 cursor-pointer">
+                Destination
+              </Link>
             </li>
             <li>
-              <a href="#about" className="hover:text-green-400">About Us</a>
+              <Link to="about-us" smooth={true} duration={500} className="hover:text-green-400 cursor-pointer">
+                About Us
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-green-400">Contact</a>
+              <Link to="contact" smooth={true} duration={500} className="hover:text-green-400 cursor-pointer">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -41,9 +52,17 @@ export const Contact = () => {
         <div>
           <h3 className="text-xl font-semibold">More Inquiry</h3>
           <p className="mt-2">
-            📞 Call/WhatsApp: 6380007962 | 9578904139 | 8778070061
+            📞 Call/WhatsApp:{" "}
+            <a href="tel:6380007962" className="hover:text-green-400">6380007962</a> |{" "}
+            <a href="tel:9578904139" className="hover:text-green-400">9578904139</a> |{" "}
+            <a href="tel:8778070061" className="hover:text-green-400">8778070061</a>
           </p>
-          <p className="mt-2">📧 maduraitourplanner@gmail.com</p>
+          <p className="mt-2">
+            📧{" "}
+            <a href="mailto:maduraitourplanner@gmail.com" className="hover:text-green-400">
+              maduraitourplanner@gmail.com
+            </a>
+          </p>
           <p className="mt-2">📍 Trichy | Madurai | Chennai</p>
         </div>
 
@@ -69,12 +88,12 @@ export const Contact = () => {
       </div>
       <div className="text-center mt-8 border-t border-gray-700 pt-4">
         <p>
-          © Copyright 2025 MTP | Design By{" "}
+          &copy; Copyright {new Date().getFullYear()} MTP | Design By{" "}
           <span className="text-green-400">veeramanikandan</span>
         </p>
         <p className="mt-2">
-          <a href="#" className="hover:text-green-400">Privacy Policy</a> •{" "}
-          <a href="#" className="hover:text-green-400">Terms & Conditions</a>
+          <a href="#" className="hover:text-green-400">Privacy Policy</a> &bull;{" "}
+          <a href="#" className="hover:text-green-400">Terms &amp; Conditions</a>
         </p>
       </div>
     </section>
