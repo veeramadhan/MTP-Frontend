@@ -66,6 +66,7 @@ const TalkWithUs = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
           alt="WhatsApp"
           style={{ width: "35px", height: "35px" }}
+          loading="lazy"
         />
       </button>
     </>

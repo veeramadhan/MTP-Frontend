@@ -1,6 +1,7 @@
 "use client";
 
 import { Camera, Car, MapPin, Plane } from "lucide-react";
+import Image from "next/image";
 
 export const Gallery = () => {
   const images = [
@@ -35,10 +36,12 @@ export const Gallery = () => {
               key={index}
               className={`relative group overflow-hidden rounded-xl ${image.className}`}
             >
-              <img
+              <Image
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span className="text-white text-sm sm:text-base font-medium">{image.alt}</span>

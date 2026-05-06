@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
 import { Facebook, Instagram, Youtube, Send, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const HomeLayout = ({ navLinks, children }) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -62,7 +63,7 @@ const HomeLayout = ({ navLinks, children }) => {
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <img src="/assets/logo/mtpm.png" alt="Logo" className="h-40 w-auto md:w-52" />
+                <Image src="/assets/logo/mtpm.png" alt="Logo" width={208} height={160} className="h-40 w-auto md:w-52" priority />
               </div>
 
               <div className="hidden md:flex space-x-6">

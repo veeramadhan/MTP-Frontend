@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "react-scroll";
+import Image from "next/image";
 
 export const Contact = () => {
   return (
@@ -55,13 +56,13 @@ export const Contact = () => {
           <h3 className="text-xl font-semibold mt-4">Payment Partners</h3>
           <div className="flex gap-2 mt-2">
             <span className="bg-white px-3 py-1 rounded">
-              <img src="/assets/images/upi.jpg" alt="UPI" className="h-6" />
+              <Image src="/assets/images/upi.jpg" alt="UPI" width={40} height={24} className="h-6 w-auto" />
             </span>
             <span className="bg-white px-3 py-1 rounded">
-              <img src="/assets/images/gpay.jpg" alt="GPay" className="h-6" />
+              <Image src="/assets/images/gpay.jpg" alt="GPay" width={40} height={24} className="h-6 w-auto" />
             </span>
             <span className="bg-white px-3 py-1 rounded">
-              <img src="/assets/images/phonepe.png" alt="PhonePe" className="h-6" />
+              <Image src="/assets/images/phonepe.png" alt="PhonePe" width={40} height={24} className="h-6 w-auto" />
             </span>
           </div>
         </div>

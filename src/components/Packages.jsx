@@ -113,6 +113,7 @@ export const Packages = () => {
                       src={pkg.image}
                       alt={pkg.title}
                       className="w-full h-48 object-cover"
+                      loading="lazy"
                     />
                     <div className="p-4 flex flex-col flex-grow">
                       <div className="flex justify-between items-center text-xs sm:text-sm mb-2">

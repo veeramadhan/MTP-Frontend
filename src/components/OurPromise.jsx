@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const OurPromise = () => {
   const features = [
@@ -82,9 +83,11 @@ export const OurPromise = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <img
+          <Image
             src="/assets/images/global.svg"
             alt="Tourists"
+            width={600}
+            height={400}
             className="w-full max-w-lg lg:max-w-none rounded-lg object-cover"
           />
           <span className="absolute bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded shadow-lg">

@@ -49,6 +49,7 @@ export default function PackagePage() {
                 src={packageDetails.image}
                 alt={packageDetails.title}
                 className="w-full h-full object-cover brightness-75"
+                loading="lazy"
               />
             )}
             <button

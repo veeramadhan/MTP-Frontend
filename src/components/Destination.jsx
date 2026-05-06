@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import RoomStay from "@/components/Destination/RoomStay";
 import Bus from "@/components/Destination/Bus";
 import Information from "@/components/Destination/Information";
@@ -42,7 +43,7 @@ export const Destination = () => {
           }`}
           onClick={() => handleSectionClick("rooms", roomRef)}
         >
-          <img src="/assets/logo/hotel.png" className="h-12 w-12 md:h-16 md:w-16" alt="Hotel Logo" />
+          <Image src="/assets/logo/hotel.png" width={64} height={64} className="h-12 w-12 md:h-16 md:w-16" alt="Hotel Logo" />
           <p className="text-sm md:text-lg font-medium mt-2">Rooms</p>
         </div>
 
@@ -56,7 +57,7 @@ export const Destination = () => {
           }`}
           onClick={() => handleSectionClick("information", infoRef)}
         >
-          <img src="/assets/logo/information.png" className="h-12 w-12 md:h-16 md:w-16" alt="Information Logo" />
+          <Image src="/assets/logo/information.png" width={64} height={64} className="h-12 w-12 md:h-16 md:w-16" alt="Information Logo" />
           <p className="text-sm md:text-lg font-medium mt-2">Information</p>
         </div>
 
@@ -70,7 +71,7 @@ export const Destination = () => {
           }`}
           onClick={() => handleSectionClick("bus", busRef)}
         >
-          <img src="/assets/logo/bus.png" className="h-12 w-12 md:h-16 md:w-16" alt="Bus Logo" />
+          <Image src="/assets/logo/bus.png" width={64} height={64} className="h-12 w-12 md:h-16 md:w-16" alt="Bus Logo" />
           <p className="text-sm md:text-lg font-medium mt-2">Bus</p>
         </div>
       </div>

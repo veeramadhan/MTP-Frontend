@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -110,10 +111,12 @@ const Information = () => {
                 className="relative w-full h-60 rounded-xl overflow-hidden transition-all duration-500"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <img
+                <Image
                   src={service.img}
                   alt={service.title}
-                  className="w-full h-full object-cover rounded-xl brightness-50 group-hover:brightness-100 transition-all duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  className="object-cover rounded-xl brightness-50 group-hover:brightness-100 transition-all duration-500"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span

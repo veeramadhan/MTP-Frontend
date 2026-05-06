@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const roomImages = [
   [
@@ -68,10 +69,12 @@ const RoomStay = ({ showRooms }) => {
           <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">{roomTypes[roomIdx]}</h3>
 
           <div className="relative w-full h-[200px] sm:h-[240px] md:h-[260px] overflow-hidden rounded-md">
-            <img
+            <Image
               src={images[currentIndex[roomIdx]]}
               alt={`${roomTypes[roomIdx]} Room`}
-              className="w-full h-full object-cover rounded-md cursor-pointer transition-transform duration-500 ease-in-out"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover rounded-md cursor-pointer transition-transform duration-500 ease-in-out"
               onClick={() => setFullscreenImage(images[currentIndex[roomIdx]])}
             />
 
@@ -106,6 +109,7 @@ const RoomStay = ({ showRooms }) => {
             src={fullscreenImage}
             alt="Fullscreen Room Image"
             className="max-w-full max-h-full object-contain"
+            loading="lazy"
           />
           <button
             onClick={() => setFullscreenImage(null)}

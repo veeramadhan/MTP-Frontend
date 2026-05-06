@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
 export const About = () => {
   const controls = useAnimation();
@@ -38,11 +39,12 @@ export const About = () => {
         className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-10 md:p-16 text-center"
       >
         <div className="flex justify-center mb-8">
-          <motion.img
+          <Image
             src="/assets/logo/mtpm.png"
             alt="Madurai Tour Planner"
+            width={160}
+            height={160}
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-green-300"
-            variants={fadeInUp}
           />
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const busImages = [
   [
@@ -61,10 +62,12 @@ const Bus = () => {
           <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">{busTypes[busIdx]}</h3>
 
           <div className="relative w-full h-48 sm:h-60 md:h-72 overflow-hidden">
-            <img
+            <Image
               src={images[currentIndex[busIdx]]}
               alt={`${busTypes[busIdx]} Bus`}
-              className="w-full h-full object-cover rounded-md cursor-pointer transition-transform duration-500 ease-in-out"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover rounded-md cursor-pointer transition-transform duration-500 ease-in-out"
               onClick={() => setFullscreenImage(images[currentIndex[busIdx]])}
             />
 
@@ -97,6 +100,7 @@ const Bus = () => {
             src={fullscreenImage}
             alt="Fullscreen Bus Image"
             className="max-w-full max-h-full object-contain"
+            loading="lazy"
           />
           <button
             onClick={() => setFullscreenImage(null)}
