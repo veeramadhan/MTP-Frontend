@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-scroll";
+import NextLink from "next/link";
 import { Facebook, Instagram, Youtube, Send, Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -102,19 +103,29 @@ const HomeLayout = ({ navLinks, children }) => {
               </div>
 
               <div className="hidden md:flex space-x-6">
-                {navLinks.map((value) => (
-                  <Link
-                    key={value.key}
-                    to={value.key}
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    activeClass="text-green-600 font-semibold"
-                    className="text-gray-700 hover:text-green-600 cursor-pointer text-xl transition-colors"
-                  >
-                    {value.value}
-                  </Link>
-                ))}
+                {navLinks.map((value) =>
+                  value.isPage ? (
+                    <NextLink
+                      key={value.key}
+                      href={value.key}
+                      className="text-white bg-green-600 hover:bg-green-700 px-4 py-1.5 rounded-lg text-lg font-semibold transition-colors"
+                    >
+                      {value.value}
+                    </NextLink>
+                  ) : (
+                    <Link
+                      key={value.key}
+                      to={value.key}
+                      smooth={true}
+                      duration={500}
+                      spy={true}
+                      activeClass="text-green-600 font-semibold"
+                      className="text-gray-700 hover:text-green-600 cursor-pointer text-xl transition-colors"
+                    >
+                      {value.value}
+                    </Link>
+                  )
+                )}
               </div>
 
               <div className="md:hidden">
@@ -139,20 +150,31 @@ const HomeLayout = ({ navLinks, children }) => {
               isMobileMenuOpen ? "max-h-96 py-4" : "max-h-0 py-0"
             }`}
           >
-            {navLinks.map((value) => (
-              <Link
-                key={value.key}
-                to={value.key}
-                smooth={true}
-                duration={500}
-                spy={true}
-                activeClass="text-green-600 font-semibold"
-                onClick={closeMobileMenu}
-                className="text-gray-700 hover:text-green-600 cursor-pointer text-xl transition-colors"
-              >
-                {value.value}
-              </Link>
-            ))}
+            {navLinks.map((value) =>
+              value.isPage ? (
+                <NextLink
+                  key={value.key}
+                  href={value.key}
+                  onClick={closeMobileMenu}
+                  className="text-white bg-green-600 hover:bg-green-700 px-4 py-1.5 rounded-lg text-lg font-semibold transition-colors"
+                >
+                  {value.value}
+                </NextLink>
+              ) : (
+                <Link
+                  key={value.key}
+                  to={value.key}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  activeClass="text-green-600 font-semibold"
+                  onClick={closeMobileMenu}
+                  className="text-gray-700 hover:text-green-600 cursor-pointer text-xl transition-colors"
+                >
+                  {value.value}
+                </Link>
+              )
+            )}
           </div>
         </nav>
 

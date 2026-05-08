@@ -14,6 +14,7 @@ const navLinks = [
   { key: "ourpromise", value: "Our Promise" },
   { key: "about-us", value: "About us" },
   { key: "contact", value: "Contact" },
+  { key: "/book-trip", value: "Book Trip", isPage: true },
 ];
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://mtp-backend-45q8.onrender.com";
