@@ -35,7 +35,7 @@ export default function BookingWizard() {
     dates: [],
     adults: 1,
     children: 0,
-    dailyPlaces: {},   // { day1: [place1, place2], day2: [...] }
+    dailyPlaces: {},   // { day1: { package: {...}, spots: [...] }, day2: {...} }
     activities: [],
   });
 
